@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -19,10 +20,13 @@ import basic_cmp_project.composeapp.generated.resources.Res
 import basic_cmp_project.composeapp.generated.resources.compose_multiplatform
 import org.example.basic_cmp_project.Greeting
 import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun HomeScreen() {
-    var showContent by remember { mutableStateOf(false) }
+    val vm = koinViewModel<HomeViewModel>()
+    val uiState by vm.uiState.collectAsState()
+
     Column(
         Modifier
             .fillMaxWidth()
@@ -30,10 +34,10 @@ fun HomeScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Button(onClick = { showContent = !showContent }) {
+        Button(onClick = { vm.toggleShowContent() }) {
             Text("Click me!")
         }
-        AnimatedVisibility(showContent) {
+        AnimatedVisibility(uiState.showContent) {
             val greeting = remember { Greeting().greet() }
             Column(
                 Modifier.fillMaxWidth(),
