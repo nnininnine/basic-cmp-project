@@ -35,5 +35,4 @@ fun WelcomeScreen(
             Text("Get started")
         }
     }
-
 }

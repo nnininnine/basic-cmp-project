@@ -8,6 +8,6 @@ class AndroidApp: Application() {
         super.onCreate()
         // start koin
 
-        initKoin()
+        initKoin(this@AndroidApp)
     }
 }

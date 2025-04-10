@@ -16,6 +16,7 @@ junit = "4.13.2"
 kotlin = "2.1.10"
 navigation-compose-version = "2.8.0-alpha11"
 koin = "4.0.3"
+data-store-version = "1.1.3"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -36,6 +37,8 @@ koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = 
 koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koin" }
 koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koin" }
 koin-compose-viewmodel = { group = "io.insert-koin", name = "koin-compose-viewmodel", version.ref = "koin" }
+datastore = { group = "androidx.datastore", name = "datastore", version.ref = "data-store-version" }
+datastore-preferences = { group = "androidx.datastore", name = "datastore-preferences", version.ref = "data-store-version" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

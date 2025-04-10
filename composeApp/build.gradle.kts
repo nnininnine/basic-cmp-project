@@ -53,6 +53,10 @@ kotlin {
             api(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)
+
+            // DataStore
+            implementation(libs.datastore)
+            implementation(libs.datastore.preferences)
         }
     }
 }
