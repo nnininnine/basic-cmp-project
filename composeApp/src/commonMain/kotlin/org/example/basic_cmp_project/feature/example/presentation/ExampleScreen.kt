@@ -1,4 +1,4 @@
-package org.example.basic_cmp_project.feature.notification.presentation
+package org.example.basic_cmp_project.feature.example.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,7 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun NotificationScreen() {
+fun ExampleScreen() {
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -18,6 +18,6 @@ fun NotificationScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("Notification screen")
+        Text("Example screen")
     }
 }

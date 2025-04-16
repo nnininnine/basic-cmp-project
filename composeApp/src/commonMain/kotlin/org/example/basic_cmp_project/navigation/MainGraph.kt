@@ -1,15 +1,13 @@
 package org.example.basic_cmp_project.navigation
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -25,13 +23,9 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import org.example.basic_cmp_project.feature.home.presentation.HomeScreen
-import org.example.basic_cmp_project.feature.more.presentation.MoreScreen
-import org.example.basic_cmp_project.feature.notification.presentation.NotificationScreen
-import org.example.basic_cmp_project.feature.profile.presentation.ProfileScreen
 import org.example.basic_cmp_project.navigation.home.addHomeScreen
 import org.example.basic_cmp_project.navigation.more.addMoreScreen
-import org.example.basic_cmp_project.navigation.notification.addNotificationScreen
+import org.example.basic_cmp_project.navigation.notification.addExampleScreen
 import org.example.basic_cmp_project.navigation.profile.addProfileScreen
 
 sealed class MainScreen(
@@ -45,8 +39,8 @@ sealed class MainScreen(
         route = "profile", title = "Profile", icon = Icons.Default.Person
     )
 
-    data object Notification : MainScreen(
-        route = "Notification", title = "Notification", icon = Icons.Default.Notifications
+    data object Example : MainScreen(
+        route = "Example", title = "Example", icon = Icons.Default.Info
     )
 
     data object More : MainScreen(
@@ -56,7 +50,7 @@ sealed class MainScreen(
     companion object {
         fun getBottomNavigationItems(): List<MainScreen> {
             return listOf(
-                Home, Profile, Notification, More
+                Home, Profile, Example, More
             )
         }
     }
@@ -95,7 +89,7 @@ fun MainScreen(popToWelcome: () -> Unit) {
         ) {
             addHomeScreen()
             addProfileScreen()
-            addNotificationScreen()
+            addExampleScreen()
             addMoreScreen()
         }
     }
